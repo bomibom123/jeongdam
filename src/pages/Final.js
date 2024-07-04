@@ -7,6 +7,7 @@ export default function Final() {
   return (
     <Container>
       <BigTitle>마무리 멘트 블라블라</BigTitle>
+      <SelectButton to="/UseScan">스캐너 작동 확인</SelectButton>
     </Container>
   );
 }
