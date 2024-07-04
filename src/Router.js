@@ -19,7 +19,7 @@ import UseScan from './pages/UseScan';
 
 export default function DefaultRouter() {
   return (
-    <Router basename="/jeongdam">
+    <Router basename="jeongdam">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/GoToMarket" element={<GoToMarket />} />
