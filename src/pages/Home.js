@@ -12,6 +12,7 @@ export default function Home() {
       </GameName>
 
       <SelectButton to="/GoToMarket">시장으로 가기</SelectButton>
+      <SelectButton to="/UseScan">스캐너 작동 확인</SelectButton>
     </Container>
   );
 }
@@ -31,8 +32,6 @@ const GameName = styled.div`
   font-size: 30px;
   text-align: center;
 `;
-
-
 
 const SelectButton = styled(Link)`
   width: 150px;
