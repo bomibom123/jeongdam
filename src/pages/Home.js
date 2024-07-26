@@ -10,9 +10,8 @@ export default function Home() {
         <br />
         정담 장군과 함께 조선을 지켜라
       </GameName>
-
-      <SelectButton to="/GoToMarket">시장으로 가기</SelectButton>
-      <SelectButton to="/UseScan">스캐너 작동 확인</SelectButton>
+      <SelectButton to="/HomeDescription">설명 듣기</SelectButton>
+      <SelectButton to="/Char1">미션 시작하기</SelectButton>
     </Container>
   );
 }
@@ -31,6 +30,8 @@ const GameName = styled.div`
   color: white;
   font-size: 30px;
   text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.5;
 `;
 
 const SelectButton = styled(Link)`

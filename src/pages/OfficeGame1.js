@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 export default function OfficeGame1() {
   return (
     <Container>
-      <GameName>게임 소개 블라블라</GameName>
+      <GameName>전쟁에 참여해<br/>화살 쏘기</GameName>
 
-      <SelectButton to="/CheckPart3">미션 달성 확인받기</SelectButton>
+      <SelectButton to="/QRScanner">미션 달성 직원 확인</SelectButton>
     </Container>
   );
 }

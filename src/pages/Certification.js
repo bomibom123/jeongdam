@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CheckPart4() {
+export default function Certification() {
   return (
     <Container>
-      <GameName>임명장 확인 파트</GameName>
+      <GameName>장군상 이미지 제작 및 첨부</GameName>
 
-      <SelectButton to="/Final">엔딩 보기</SelectButton>
+      <SelectButton to="/GoToReturn">출발 장소로 돌아가기</SelectButton>
     </Container>
   );
 }
@@ -25,6 +25,7 @@ const GameName = styled.div`
   color: white;
   font-size: 30px;
   text-align: center;
+  margin-bottom: 30px;
 `;
 
 const SelectButton = styled(Link)`

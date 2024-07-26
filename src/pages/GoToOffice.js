@@ -1,14 +1,33 @@
-import styled from 'styled-components';
-import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import mapImageExport from '../assets/map.png';
+import mapImage from '../assets/map.png';
+import footPrintImage from '../assets/footprint2.png';
 
 export default function Home() {
+  const [visibleSteps, setVisibleSteps] = useState([]);
+
+  useEffect(() => {
+    footStepsPath.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleSteps((prev) => [...prev, index]);
+      }, index * 300); // 0.2초 간격
+    });
+  }, []);
+
   return (
     <Container>
       <BigTitle>관아로 가는 길</BigTitle>
-      <MapImage src={mapImageExport} alt="지도 이미지" />
-      <SelectButton to="/OfficeGame1">도착!</SelectButton>
+      <MapContainer>
+        {footStepsPath.map((point, index) => (
+          <FootStep
+            key={index}
+            style={{ left: `${point.x}px`, top: `${point.y}px` }}
+            visible={visibleSteps.includes(index)}
+          />
+        ))}
+      </MapContainer>
+      <SelectButton to="/OfficeDescription">도착!</SelectButton>
     </Container>
   );
 }
@@ -44,7 +63,41 @@ const SelectButton = styled(Link)`
   border-radius: 5px;
 `;
 
-const MapImage = styled.img`
-  max-width: 70vw;
-  margin-top: 20px;
+const generatePath = (start, end, steps) => {
+  const path = [];
+  const dx = (end.x - start.x) / steps;
+  const dy = (end.y - start.y) / steps;
+
+  for (let i = 0; i <= steps; i++) {
+    const x = start.x + dx * i;
+    const y = start.y + dy * i;
+    path.push({ x, y });
+  }
+
+  return path;
+};
+
+// 예시 사용
+const start = { x: 230, y: 75 };
+const end = { x: 220, y: 140 };
+const steps = 3;
+
+const footStepsPath = generatePath(start, end, steps);
+
+const MapContainer = styled.div`
+  position: relative;
+  width: 90vw;
+  height: 60vw;
+  background-image: url(${mapImage});
+  background-size: cover;
+`;
+
+const FootStep = styled.div`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url(${footPrintImage});
+  background-size: cover;
+  transition: opacity 0.5s;
+  opacity: ${(props) => (props.visible ? 1 : 0)};
 `;

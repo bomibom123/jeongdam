@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 export default function MarketGame1() {
   return (
     <Container>
-      <GameName>게임 소개 블라블라</GameName>
+      <GameName>
+        정확한 양의 감자를 옮겨
+        <br />
+        식량을 보호하라!
+      </GameName>
 
-      <SelectButton to="/CheckPart1">미션 달성 확인받기</SelectButton>
+      <SelectButton to="/QRScanner">미션 달성 직원 확인</SelectButton>
     </Container>
   );
 }
@@ -25,6 +29,7 @@ const GameName = styled.div`
   color: white;
   font-size: 30px;
   text-align: center;
+  margin-bottom: 30px;
 `;
 
 const SelectButton = styled(Link)`
